@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "serve": "pm2 start ecosystem.config.js --env production"
+  },
   "dependencies": {
     "telegraf": "^3.38.0",
     "tesseract.js": "^2.1.4"

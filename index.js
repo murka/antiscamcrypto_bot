@@ -1,9 +1,9 @@
 const { Telegraf } = require('telegraf')
 const { createWorker } = require('tesseract.js')
 
-const token = process.env.BOT_TOKEN
-const trigger = 0.5
-const vocabulary = ['blockchain', 'bitcoin', 'giveaway','BTC', 'ETH', 'musk', 'elon']
+const token = process.env.TOKEN
+const trigger = process.env.trigger
+const vocabulary = process.env.vocabulary
 
 const bot = new Telegraf(token)
 
@@ -24,7 +24,7 @@ bot.on('photo', async (ctx, next) => {
   for(const iterator of vocabulary) {
     banned += lowerText.includes(iterator)
   }
-  if(vocabulary.length/banned>=trigger) {
+  if(vocabulary.length*trigger<=banned) {
     await ctx.deleteMessage(ctx.message.message_id)
   }
   await next()
