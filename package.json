@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "telegraf": "^3.38.0",
+    "tesseract.js": "^2.1.4"
+  }
+}
